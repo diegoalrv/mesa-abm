@@ -1,11 +1,10 @@
-version: "3.9"
 services:
   mesa:
-    build: .
+    build:
+      context: ./mesa
     container_name: mesa_app
     ports:
       - "8521:8521"
     volumes:
-      - ./scripts:/app/scripts
-      - ./data:/app/data
-    command: python scripts/first_mesa.py
+      - ./mesa/scripts:/app/scripts
+      - ./mesa/data:/app/data
