@@ -1,3 +1,17 @@
-<net version="1.9" junctionCornerDetail="5">
-  <location netOffset="0.00,0.00" convBoundary="0.00,0.00,500.00,500.00" origBoundary="0.00,0.00,500.00,500.00"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<net version="1.16" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="250.00,250.00" convBoundary="0.00,0.00,500.00,500.00" origBoundary="-250.00,-250.00,250.00,250.00" projParameter="!"/>
+
+    <type id="highway.residential" priority="4" numLanes="1" speed="13.89"/>
+
+    <edge id="e0" from="n0" to="n1" priority="4" type="highway.residential" shape="0.00,250.00 500.00,250.00">
+        <lane id="e0_0" index="0" speed="13.89" length="500.00" shape="0.00,248.40 500.00,248.40"/>
+        <lane id="e0_1" index="1" speed="13.89" length="500.00" shape="0.00,251.60 500.00,251.60"/>
+    </edge>
+
+    <junction id="n0" type="dead_end" x="0.00" y="250.00" incLanes="" intLanes="" shape="0.00,253.20 0.00,246.80"/>
+    <junction id="n1" type="dead_end" x="500.00" y="250.00" incLanes="e0_0 e0_1" intLanes="" shape="500.00,246.80 500.00,253.20"/>
+
 </net>

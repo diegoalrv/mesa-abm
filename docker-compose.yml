@@ -23,18 +23,24 @@ services:
       sumo --remote-port 8813
            -c /sim/config.sumocfg
            --start
-           --quit-on-end
+           --num-clients 1
     volumes:
       - ./sumo-traci/sumo:/sim
     networks:
       - abm-net
+    healthcheck:
+      test: ["CMD-SHELL", "netstat -tuln | grep 8813 || exit 1"]
+      interval: 2s
+      timeout: 5s
+      retries: 10
 
   traci-client:
     build:
       context: ./sumo-traci/controller
     container_name: traci-client
     depends_on:
-      - sumo-server
+      sumo-server:
+        condition: service_healthy
     environment:
       - SUMO_PORT=8813
       - SUMO_HOST=sumo-server
