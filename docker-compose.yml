@@ -8,3 +8,39 @@ services:
     volumes:
       - ./mesa/scripts:/app/scripts
       - ./mesa/data:/app/data
+    networks:
+      - abm-net
+
+  sumo-server:
+    build:
+      context: ./sumo-traci/sumo
+    container_name: sumo-server
+    ports:
+      - "8813:8813"
+    environment:
+      - SUMO_HOME=/usr/share/sumo
+    command: >
+      sumo --remote-port 8813
+           -c /sim/config.sumocfg
+           --start
+           --quit-on-end
+    volumes:
+      - ./sumo-traci/sumo:/sim
+    networks:
+      - abm-net
+
+  traci-client:
+    build:
+      context: ./sumo-traci/controller
+    container_name: traci-client
+    depends_on:
+      - sumo-server
+    environment:
+      - SUMO_PORT=8813
+      - SUMO_HOST=sumo-server
+    networks:
+      - abm-net
+
+networks:
+  abm-net:
+    driver: bridge
