@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  mesa:
+    build: .
+    container_name: mesa_app
+    ports:
+      - "8521:8521"
+    volumes:
+      - ./scripts:/app/scripts
+      - ./data:/app/data
+    command: python scripts/first_mesa.py
