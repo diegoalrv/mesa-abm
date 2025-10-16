@@ -1,1 +1,9 @@
 mesa==2.2.0
+traci
+sumolib
+pandas
+numpy
+geopandas
+pandas
+pyarrow
+shapely

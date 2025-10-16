@@ -1,0 +1,5 @@
+mode,speed_kmh,emission_factor
+walk,5,0
+bike,15,0
+car,40,120
+bus,30,80

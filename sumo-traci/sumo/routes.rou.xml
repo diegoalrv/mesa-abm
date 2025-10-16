@@ -2,10 +2,9 @@
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
     
-    <vType id="car" accel="2.6" decel="4.5" length="5.0" maxSpeed="13.89" sigma="0.5" color="1,1,0"/>
-    
-    <route id="route0" edges="e0"/>
-    
-    <flow id="flow0" type="car" route="route0" begin="0" end="100" number="10" departSpeed="max"/>
+    <!-- Tipos de vehículos -->
+    <vType id="car" accel="2.6" decel="4.5" length="5.0" maxSpeed="13.89" sigma="0.5" color="1,0,0"/>
+    <vType id="bicycle" accel="1.2" decel="3.0" length="1.8" maxSpeed="8.33" sigma="0.3" color="0,1,0"/>
+    <vType id="bus" accel="1.0" decel="3.5" length="12.0" maxSpeed="13.89" sigma="0.5" color="0,0,1"/>
     
 </routes>

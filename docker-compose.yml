@@ -1,16 +1,4 @@
 services:
-  mesa:
-    build:
-      context: ./mesa
-    container_name: mesa_app
-    ports:
-      - "8521:8521"
-    volumes:
-      - ./mesa/scripts:/app/scripts
-      - ./mesa/data:/app/data
-    networks:
-      - abm-net
-
   sumo-server:
     build:
       context: ./sumo-traci/sumo
@@ -23,7 +11,6 @@ services:
       sumo --remote-port 8813
            -c /sim/config.sumocfg
            --start
-           --num-clients 1
     volumes:
       - ./sumo-traci/sumo:/sim
     networks:
@@ -33,17 +20,25 @@ services:
       interval: 2s
       timeout: 5s
       retries: 10
+    restart: unless-stopped  # ← NUEVO: Reinicia automáticamente si se cae
 
-  traci-client:
+  mesa-simulation:
     build:
-      context: ./sumo-traci/controller
-    container_name: traci-client
+      context: ./mesa
+    container_name: mesa-simulation
+    ports:
+      - "8521:8521"
     depends_on:
       sumo-server:
         condition: service_healthy
     environment:
-      - SUMO_PORT=8813
       - SUMO_HOST=sumo-server
+      - SUMO_PORT=8813
+      - N_AGENTS=50
+    volumes:
+      - ./mesa/scripts:/app/scripts
+      - ./mesa/data:/app/data
+      - ./results:/app/results
     networks:
       - abm-net
 
