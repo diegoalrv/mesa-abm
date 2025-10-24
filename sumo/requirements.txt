@@ -1,0 +1,7 @@
+sumolib
+libsumo
+pandas
+geopandas
+matplotlib
+pyarrow
+requests

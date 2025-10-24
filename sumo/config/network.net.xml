@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-10-18 15:52:51 by Eclipse SUMO netconvert Version 1.24.0
+<netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="config/nodes.nod.xml"/>
+        <edge-files value="config/edges.edg.xml"/>
+    </input>
+
+    <output>
+        <output-file value="config/network.net.xml"/>
+    </output>
+
+</netconvertConfiguration>
+-->
+
+<net version="1.20" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,100.00,100.00" origBoundary="0.00,0.00,100.00,100.00" projParameter="!"/>
+
+    <edge id=":A_0" function="internal">
+        <lane id=":A_0_0" index="0" speed="3.90" length="2.58" shape="-1.60,-0.00 -1.50,-0.70 -1.20,-1.20 -0.70,-1.50 -0.00,-1.60"/>
+    </edge>
+    <edge id=":B_0" function="internal">
+        <lane id=":B_0_0" index="0" speed="3.90" length="2.58" shape="100.00,-1.60 100.70,-1.50 101.20,-1.20 101.50,-0.70 101.60,0.00"/>
+    </edge>
+    <edge id=":C_0" function="internal">
+        <lane id=":C_0_0" index="0" speed="3.90" length="2.58" shape="101.60,100.00 101.50,100.70 101.20,101.20 100.70,101.50 100.00,101.60"/>
+    </edge>
+    <edge id=":D_0" function="internal">
+        <lane id=":D_0_0" index="0" speed="3.90" length="2.58" shape="0.00,101.60 -0.70,101.50 -1.20,101.20 -1.50,100.70 -1.60,100.00"/>
+    </edge>
+
+    <edge id="AB" from="A" to="B" priority="-1">
+        <lane id="AB_0" index="0" speed="13.90" length="100.00" shape="-0.00,-1.60 100.00,-1.60"/>
+    </edge>
+    <edge id="BC" from="B" to="C" priority="-1">
+        <lane id="BC_0" index="0" speed="13.90" length="100.00" shape="101.60,0.00 101.60,100.00"/>
+    </edge>
+    <edge id="CD" from="C" to="D" priority="-1">
+        <lane id="CD_0" index="0" speed="13.90" length="100.00" shape="100.00,101.60 0.00,101.60"/>
+    </edge>
+    <edge id="DA" from="D" to="A" priority="-1">
+        <lane id="DA_0" index="0" speed="13.90" length="100.00" shape="-1.60,100.00 -1.60,-0.00"/>
+    </edge>
+
+    <junction id="A" type="priority" x="0.00" y="0.00" incLanes="DA_0" intLanes=":A_0_0" shape="-3.20,-0.00 0.00,-0.00 -0.00,-3.20 -1.78,-2.84 -2.40,-2.40 -2.84,-1.78 -3.11,-0.98">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="B" type="priority" x="100.00" y="0.00" incLanes="AB_0" intLanes=":B_0_0" shape="100.00,-0.00 103.20,-0.00 102.84,-1.78 102.40,-2.40 101.78,-2.84 100.98,-3.11 100.00,-3.20">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="C" type="priority" x="100.00" y="100.00" incLanes="BC_0" intLanes=":C_0_0" shape="103.20,100.00 100.00,100.00 100.00,103.20 101.78,102.84 102.40,102.40 102.84,101.78 103.11,100.98">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="D" type="priority" x="0.00" y="100.00" incLanes="CD_0" intLanes=":D_0_0" shape="-0.00,103.20 -0.00,100.00 -3.20,100.00 -2.84,101.78 -2.40,102.40 -1.78,102.84 -0.98,103.11">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+
+    <connection from="AB" to="BC" fromLane="0" toLane="0" via=":B_0_0" dir="l" state="M"/>
+    <connection from="BC" to="CD" fromLane="0" toLane="0" via=":C_0_0" dir="l" state="M"/>
+    <connection from="CD" to="DA" fromLane="0" toLane="0" via=":D_0_0" dir="l" state="M"/>
+    <connection from="DA" to="AB" fromLane="0" toLane="0" via=":A_0_0" dir="l" state="M"/>
+
+    <connection from=":A_0" to="AB" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":B_0" to="BC" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":C_0" to="CD" fromLane="0" toLane="0" dir="l" state="M"/>
+    <connection from=":D_0" to="DA" fromLane="0" toLane="0" dir="l" state="M"/>
+
+</net>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- Vehicle types -->
+    <vType id="car" accel="1.0" decel="4.5" sigma="0.5" length="5.0" maxSpeed="13.9"/>
+
+    <!-- Routes -->
+    <route id="r0" edges="AB BC CD DA"/>
+    <route id="r1" edges="DA AB BC CD"/>
+
+    <!-- Vehicles -->
+    <vehicle id="veh0" type="car" route="r0" depart="0" departLane="0" departPos="0"/>
+    <vehicle id="veh1" type="car" route="r1" depart="10" departLane="0" departPos="0"/>
+</routes>
